@@ -1,0 +1,47 @@
+DB design
+
+movie(
+    name varchar ,
+    movieid number foreign key,
+    runtime number,
+    rating varchar,
+    language varchar,
+    artists varchar,
+    images  blob,
+    trailer blob,
+    genre varchar
+    artist_id number
+    
+)
+
+
+genre ---> can be related with table 'movie' using genre name (name = genre)
+
+genre(
+    id number primary key
+    name foreign key
+)
+
+review ---> can be related with table 'movie' using movie name (name = movie_name)
+review(
+    review varchar,
+    user varchar,
+    movie_name varchar foreign key,
+    rating number 
+    movieid number foreign key
+    user_id number
+)
+
+user(
+    user_id number ,
+    user_name varchar 
+)
+
+artist ---> can be related with table 'movie' using artist column (artist =artist)
+artist(
+    artist_id number primary key
+    artist_name varchar
+    movies varchar foreign key
+    role varchar
+    skills vrachar
+)
